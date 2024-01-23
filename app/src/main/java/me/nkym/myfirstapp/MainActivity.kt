@@ -36,8 +36,10 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
+/* Virtual Deviceを使用することなく、Preview機能で表示する際のコード */
 fun GreetingPreview() {
     MyFirstAppTheme {
-        Greeting("Android")
+        /* Greeting関数を実行 */
+        Greeting("Android Studio Beginner")
     }
 }
