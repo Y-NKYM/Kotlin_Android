@@ -21,4 +21,12 @@ fun main(){
     //Decimals are only available on float and double.
     //Needs "u" at the end of the value.
     var age: UShort = 20u
+
+    /* Boolean */
+    val myTrue = true
+    val myFalse = false
+    var boolean: Boolean? = null
+    println(boolean)
+    boolean = true
+    println(boolean)
 }
