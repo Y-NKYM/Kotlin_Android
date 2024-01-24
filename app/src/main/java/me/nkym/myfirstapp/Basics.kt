@@ -16,4 +16,9 @@ fun main(){
     val pi2 = 3.14f
     val pi3 = 3.1415926535f
     println(pi3)  //3.1415927
+
+    /* Unsigned Integer Type */
+    //Decimals are only available on float and double.
+    //Needs "u" at the end of the value.
+    var age: UShort = 20u
 }
