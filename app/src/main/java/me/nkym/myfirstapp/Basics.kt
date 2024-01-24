@@ -29,4 +29,11 @@ fun main(){
     println(boolean)
     boolean = true
     println(boolean)
+
+    /* Operator */
+    println(myTrue || myFalse)  //true
+    println(myTrue && myFalse)  //false
+    println(!myTrue)   //false
+    println(!boolean)  //false
+    println(myTrue && boolean)  //true
 }
