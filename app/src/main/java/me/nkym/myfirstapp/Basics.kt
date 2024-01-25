@@ -40,4 +40,13 @@ fun main(){
     /* Character */
     val Char1 = 'a'
     val myChar = '\u00AE'
+
+    /* String */
+    var myName: String = "Hello World"
+    var name = ""  //not null
+    name = "Name"
+    println(name)
+    println(name.lowercase())
+    println(name.uppercase())
+    println(name + "is Alice")
 }
