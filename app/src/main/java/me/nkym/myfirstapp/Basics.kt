@@ -49,4 +49,12 @@ fun main(){
     println(name.lowercase())
     println(name.uppercase())
     println(name + "is Alice")
+
+    /* If Statement */
+    val n = 18
+    if(n >= 18){
+        println("You can go into the club")
+    } else {
+        println("You are too young to go into the club")
+    }
 }
