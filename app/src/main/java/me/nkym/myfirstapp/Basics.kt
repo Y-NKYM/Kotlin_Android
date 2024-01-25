@@ -36,4 +36,8 @@ fun main(){
     println(!myTrue)   //false
     println(!boolean)  //false
     println(myTrue && boolean)  //true
+
+    /* Character */
+    val Char1 = 'a'
+    val myChar = '\u00AE'
 }
