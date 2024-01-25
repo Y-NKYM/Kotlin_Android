@@ -1,5 +1,7 @@
 package me.nkym.myfirstapp
 
+import androidx.core.text.isDigitsOnly
+
 fun main(){
     /* Variables */
     val number1 = 1
@@ -51,8 +53,20 @@ fun main(){
     println(name + "is Alice")
 
     /* If Statement */
-    val n = 18
+    var n = 18
     if(n >= 18){
+        println("You can go into the club")
+    } else {
+        println("You are too young to go into the club")
+    }
+
+    /* Converting datatype */
+    var enteredAge = readln()
+    println(enteredAge.toIntOrNull())
+    val convertedAge = enteredAge.toIntOrNull()
+    if(convertedAge == null){
+        println("Please enter a number")
+    } else if(convertedAge >= 18) {
         println("You can go into the club")
     } else {
         println("You are too young to go into the club")
