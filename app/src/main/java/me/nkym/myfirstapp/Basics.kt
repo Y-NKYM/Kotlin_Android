@@ -71,4 +71,28 @@ fun main(){
     } else {
         println("You are too young to go into the club")
     }
+
+    /* When statement */
+    var computerChoice = ""
+    val randomNumber = (1..3).random()
+    when (randomNumber) {
+        1 -> {
+            computerChoice = "Rock"
+        }
+        2 -> {
+            computerChoice = "Paper"
+        }
+        3 -> {
+            computerChoice = "Scissors"
+        }
+    }
+
+    /* While statement */
+    var count = 0
+    while(count < 3){
+        println("Count is $count")
+        count++
+    }
+    println("Loop is done")
+
 }

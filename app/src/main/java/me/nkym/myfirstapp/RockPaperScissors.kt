@@ -9,15 +9,20 @@ fun main(){
     println("Rock, Paper, or Scissors? Enter your choice!")
 
     /* プレイヤーの手を取得 */
-    playerChoice = readln()
-    if(playerChoice.lowercase().equals("rock")){
-        playerChoice = "Rock"
-    } else if(playerChoice.lowercase().equals("paper")){
-        playerChoice = "Paper"
-    } else if(playerChoice.lowercase().equals("scissors")){
-        playerChoice = "Scissors"
-    } else {
-        println("Please select Rock, Paper, or Scissors.")
+    while(true) {
+        playerChoice = readln()
+        if (playerChoice.lowercase().equals("rock")) {
+            playerChoice = "Rock"
+            break
+        } else if (playerChoice.lowercase().equals("paper")) {
+            playerChoice = "Paper"
+            break
+        } else if (playerChoice.lowercase().equals("scissors")) {
+            playerChoice = "Scissors"
+            break
+        } else {
+            println("Please select Rock, Paper, or Scissors.")
+        }
     }
 
     /* コンピューター側の手をランダムで決める */
@@ -36,7 +41,18 @@ fun main(){
     println(computerChoice)
 
     /* 勝者を発表 */
+    val winner = when {
+        playerChoice == computerChoice -> "Tie"
+        playerChoice == "Rock" && computerChoice == "Scissors" -> "Player"
+        playerChoice == "Paper" && computerChoice == "Rock" -> "Player"
+        playerChoice == "Scissors" && computerChoice == "Paper" -> "Player"
+        else -> "Computer"
+    }
 
-
+    if(winner == "Tie"){
+        println("It's a tie!")
+    } else {
+        println("$winner won!")
+    }
 
 }
