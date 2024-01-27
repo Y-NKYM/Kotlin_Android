@@ -101,7 +101,13 @@ fun main(){
 
     makeCoffee(1, "Jimmy")
     makeCoffee(5, "Henry")
-    var myResult = sum(5, 10)
+
+    println("Enter number 1")
+    val num1 = readln().toInt()
+    println("Enter number 2")
+    val num2 = readln().toInt()
+
+    var myResult = divide(num1, num2)
     println(myResult)
 
 }
@@ -116,8 +122,11 @@ fun makeCoffee(sugarCount: Int, name: String){
         println("Coffee with $sugarCount spoons of sugar for $name")
     }
 }
-
 fun sum(num1: Int, num2: Int):Int{
     val result = num1 + num2
+    return result
+}
+fun divide(num1: Int, num2: Int):Double{
+    val result = num1/num2.toDouble()
     return result
 }
