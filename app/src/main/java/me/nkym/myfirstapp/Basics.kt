@@ -97,8 +97,7 @@ fun main(){
     }
     println("Loop is done")
 
-    */
-
+    /* Function */
     makeCoffee(1, "Jimmy")
     makeCoffee(5, "Henry")
 
@@ -109,6 +108,11 @@ fun main(){
 
     var myResult = divide(num1, num2)
     println(myResult)
+
+    */
+
+    //Creating an object/instance of the class Dog
+    var daisy = Dog()
 
 }
 
