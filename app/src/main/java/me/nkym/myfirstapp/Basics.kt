@@ -3,6 +3,8 @@ package me.nkym.myfirstapp
 import androidx.core.text.isDigitsOnly
 
 fun main(){
+    /*
+
     /* Variables */
     val number1 = 1
     var myAge = 20
@@ -94,5 +96,15 @@ fun main(){
         count++
     }
     println("Loop is done")
+
+    */
+
+    /* Function */
+    fun makeCoffee(){
+        println("Buy beans")
+        println("Grind beans")
+        println("Add hot water")
+    }
+    makeCoffee()
 
 }
