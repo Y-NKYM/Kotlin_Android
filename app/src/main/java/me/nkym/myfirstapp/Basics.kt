@@ -99,18 +99,25 @@ fun main(){
 
     */
 
-    /* Function */
-    fun makeCoffee(sugarCount: Int, name: String){
-        if(sugarCount == 1){
-            println("Coffee with $sugarCount spoon of sugar for $name")
-        } else if(sugarCount == 0) {
-            println("Coffee with no sugar for $name")
-        } else {
-            println("Coffee with $sugarCount spoons of sugar for $name")
-        }
-
-    }
     makeCoffee(1, "Jimmy")
     makeCoffee(5, "Henry")
+    var myResult = sum(5, 10)
+    println(myResult)
 
+}
+
+/* Function */
+fun makeCoffee(sugarCount: Int, name: String){
+    if(sugarCount == 1){
+        println("Coffee with $sugarCount spoon of sugar for $name")
+    } else if(sugarCount == 0) {
+        println("Coffee with no sugar for $name")
+    } else {
+        println("Coffee with $sugarCount spoons of sugar for $name")
+    }
+}
+
+fun sum(num1: Int, num2: Int):Int{
+    val result = num1 + num2
+    return result
 }
