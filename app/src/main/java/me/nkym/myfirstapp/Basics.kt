@@ -100,11 +100,15 @@ fun main(){
     */
 
     /* Function */
-    fun makeCoffee(){
-        println("Buy beans")
-        println("Grind beans")
-        println("Add hot water")
+    fun makeCoffee(sugarCount: Int){
+        if(sugarCount == 1){
+            println("Coffee with $sugarCount spoon of sugar")
+        } else {
+            println("Coffee with $sugarCount spoons of sugar")
+        }
+
     }
-    makeCoffee()
+    makeCoffee(1)
+    makeCoffee(5)
 
 }
