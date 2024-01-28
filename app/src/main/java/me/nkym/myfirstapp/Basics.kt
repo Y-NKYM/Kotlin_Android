@@ -112,7 +112,12 @@ fun main(){
     */
 
     //Creating an object/instance of the class Dog
-    var daisy = Dog()
+    var daisy = Dog("Daisy")
+    println(daisy.name)
+    println(daisy.age)
+    daisy.age = 2
+    println(daisy.age)
+
 
 }
 

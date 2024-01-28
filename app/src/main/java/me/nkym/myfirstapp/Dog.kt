@@ -1,13 +1,13 @@
 package me.nkym.myfirstapp
 
 //Basics for "class" object.
-class Dog {
+class Dog(val name: String, var age: Int = 0) {
 
     init{
-        bark()
+        bark(name)
     }
 
-    fun bark(){
-        println("Wolf Wolf")
+    fun bark(name: String){
+        println("$name says Wolf Wolf")
     }
 }
