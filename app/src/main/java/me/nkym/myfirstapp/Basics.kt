@@ -139,3 +139,20 @@ fun divide(num1: Int, num2: Int):Double{
     val result = num1/num2.toDouble()
     return result
 }
+
+/* Data Class */
+data class CoffeeDetails(
+    val sugarCount: Int,
+    val name: String,
+    val size: String,
+    val creamAmount: Int
+)
+fun createCoffee(coffeeDetails: CoffeeDetails){
+    if(coffeeDetails.sugarCount == 1){
+        println("Coffee with ${coffeeDetails.sugarCount} spoon of sugar for ${coffeeDetails.name}")
+    } else if(coffeeDetails.sugarCount == 0) {
+        println("Coffee with no sugar for ${coffeeDetails.name}")
+    } else {
+        println("Coffee with ${coffeeDetails.sugarCount} spoons of sugar for ${coffeeDetails.name}")
+    }
+}
