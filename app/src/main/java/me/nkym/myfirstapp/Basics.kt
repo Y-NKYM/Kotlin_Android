@@ -118,6 +118,7 @@ fun main(){
 
      */
 
+    //List
     val shoppingList = listOf("A", 1, "C")
     println(shoppingList)
     val shoppingList2 = mutableListOf("A", 1, "C")
@@ -131,6 +132,9 @@ fun main(){
     shoppingList3.add(1, "D")
     println(shoppingList3)
 
+    println(shoppingList3[0])
+    shoppingList3[0] = "E"
+    println(shoppingList3[0])
 }
 
 /* Function */
