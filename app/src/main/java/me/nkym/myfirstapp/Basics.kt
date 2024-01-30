@@ -125,6 +125,12 @@ fun main(){
     shoppingList2.add("D")
     println(shoppingList2)
     println(shoppingList3)
+
+    shoppingList3.removeAt(1)
+    println(shoppingList3)
+    shoppingList3.add(1, "D")
+    println(shoppingList3)
+
 }
 
 /* Function */
