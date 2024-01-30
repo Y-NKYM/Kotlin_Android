@@ -109,8 +109,6 @@ fun main(){
     var myResult = divide(num1, num2)
     println(myResult)
 
-    */
-
     //Creating an object/instance of the class Dog
     var daisy = Dog("Daisy")
     println(daisy.name)
@@ -118,7 +116,15 @@ fun main(){
     daisy.age = 2
     println(daisy.age)
 
+     */
 
+    val shoppingList = listOf("A", 1, "C")
+    println(shoppingList)
+    val shoppingList2 = mutableListOf("A", 1, "C")
+    var shoppingList3 = mutableListOf<String>("A", "B", "C")
+    shoppingList2.add("D")
+    println(shoppingList2)
+    println(shoppingList3)
 }
 
 /* Function */
