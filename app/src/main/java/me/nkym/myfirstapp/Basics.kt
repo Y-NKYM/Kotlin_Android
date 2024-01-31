@@ -131,6 +131,13 @@ fun main(){
     var hasElement = shoppingList3.contains("A")
     println(hasElement)
 
+    for(item in shoppingList3) {
+        println(item)
+        if (item == "D") {
+            break
+        }
+    }
+
 }
 
 /* Function */
