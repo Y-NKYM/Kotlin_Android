@@ -138,6 +138,12 @@ fun main(){
         }
     }
 
+    println(shoppingList3.size)
+    println(0 until shoppingList3.size)
+    for(index in 0 until shoppingList3.size){
+        println("item ${shoppingList3[index]} is at index $index")
+    }
+
 }
 
 /* Function */
