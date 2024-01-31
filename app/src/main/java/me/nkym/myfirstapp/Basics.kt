@@ -135,6 +135,7 @@ fun main(){
     println(shoppingList3[0])
     shoppingList3[0] = "E"
     println(shoppingList3[0])
+    shoppingList3.set(0, "F")
 }
 
 /* Function */
