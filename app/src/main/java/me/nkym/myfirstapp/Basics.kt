@@ -120,22 +120,17 @@ fun main(){
 
     //List
     val shoppingList = listOf("A", 1, "C")
-    println(shoppingList)
     val shoppingList2 = mutableListOf("A", 1, "C")
     var shoppingList3 = mutableListOf<String>("A", "B", "C")
-    shoppingList2.add("D")
-    println(shoppingList2)
-    println(shoppingList3)
-
     shoppingList3.removeAt(1)
-    println(shoppingList3)
     shoppingList3.add(1, "D")
-    println(shoppingList3)
-
-    println(shoppingList3[0])
     shoppingList3[0] = "E"
-    println(shoppingList3[0])
     shoppingList3.set(0, "F")
+
+    println(shoppingList3)
+    var hasElement = shoppingList3.contains("A")
+    println(hasElement)
+
 }
 
 /* Function */
