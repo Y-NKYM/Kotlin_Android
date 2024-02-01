@@ -32,4 +32,8 @@ class BankAccount(
             println(transaction)
         }
     }
+
+    fun displayBalance(){
+        println("$accountHolder's balance is $$balance")
+    }
 }

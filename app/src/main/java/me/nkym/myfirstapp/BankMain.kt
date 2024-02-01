@@ -12,5 +12,5 @@ fun main(){
     frankBankAccount.withdraw(2222.15)
     frankBankAccount.displayTransactionHistory()
 
-    println("The balance is ${frankBankAccount.balance}")
+    frankBankAccount.displayBalance()
 }
