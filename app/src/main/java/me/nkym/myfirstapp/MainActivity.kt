@@ -4,12 +4,16 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
@@ -44,13 +48,27 @@ fun UnitConverter(){
             //Value値が変化した際に実行されるソースコードを記述する。
         })
         Row {
+            /*
             val context = LocalContext.current
-            Button(onClick = { Toast
-                .makeText(context,
-                    "Thanks for clicking!",
-                    Toast.LENGTH_LONG).show() })
-            {
+            Button(onClick = {
+                //Toast(PopUp) when clicking button
+                Toast.makeText(context, "Thanks for clicking!", Toast.LENGTH_LONG).show()
+            }){
                 Text(text = "Click Me")
+            }
+            */
+
+            Box{
+                Button(onClick = { /*TODO*/ }) {
+                    Text(text = "Select")
+                    Icon(Icons.Default.ArrowDropDown, contentDescription = "")
+                }
+            }
+            Box{
+                Button(onClick = { /*TODO*/ }) {
+                    Text(text = "Select")
+                    Icon(Icons.Default.ArrowDropDown, contentDescription = "")
+                }
             }
         }
         Text("Result:")
