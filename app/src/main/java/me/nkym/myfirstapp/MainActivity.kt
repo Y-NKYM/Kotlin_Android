@@ -45,7 +45,10 @@ fun UnitConverter(){
         })
         Row {
             val context = LocalContext.current
-            Button(onClick = {})
+            Button(onClick = { Toast
+                .makeText(context,
+                    "Thanks for clicking!",
+                    Toast.LENGTH_LONG).show() })
             {
                 Text(text = "Click Me")
             }
