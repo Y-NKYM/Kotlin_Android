@@ -36,16 +36,14 @@ class MainActivity : ComponentActivity() {
 fun UnitConverter(){
     //Column{}内に記述する要素は重ならず、一行下に記述される。
     Column {
-        TextField(value = "", onValueChange = {})
+//        TextField(value = "", onValueChange = {})
         OutlinedTextField(value = "", onValueChange = {
             //Value値が変化した際に実行されるソースコードを記述する。
         })
-
-
-
         Row {
 
         }
+        Text("Result:")
     }
 }
 
@@ -61,9 +59,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 /* Virtual Deviceを使用することなく、Preview機能で表示する際のコード */
-fun GreetingPreview() {
-    MyFirstAppTheme {
-        /* Greeting関数を実行 */
-        Greeting("Android Studio Beginner")
-    }
+fun UnitConverterPreview() {
+    UnitConverter()
 }
