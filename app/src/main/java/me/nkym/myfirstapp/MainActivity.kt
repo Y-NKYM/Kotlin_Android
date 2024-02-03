@@ -79,12 +79,48 @@ fun UnitConverter(){
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "")
 
                 }
+                DropdownMenu(expanded = true, onDismissRequest = { /*TODO*/ }){
+                    DropdownMenuItem(
+                        text = { Text("Centimeters") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { Text("Meters") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { Text("Feet") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { Text("Inches") },
+                        onClick = { /*TODO*/ }
+                    )
+                }
             }
             Spacer(modifier = Modifier.width(16.dp))
             Box{
                 Button(onClick = { /*TODO*/ }) {
                     Text(text = "Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "")
+                }
+                DropdownMenu(expanded = true, onDismissRequest = { /*TODO*/ }){
+                    DropdownMenuItem(
+                        text = { Text("Centimeters") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { Text("Meters") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { Text("Feet") },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { Text("Inches") },
+                        onClick = { /*TODO*/ }
+                    )
                 }
             }
         }
