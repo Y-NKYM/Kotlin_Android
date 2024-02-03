@@ -52,7 +52,9 @@ class MainActivity : ComponentActivity() {
 fun UnitConverter(){
     //Column{}内に記述する要素は重ならず、一行下に記述される。
     Column(
-
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text("Unit Converter", modifier = Modifier.padding())
         Spacer(modifier = Modifier.height(16.dp))
