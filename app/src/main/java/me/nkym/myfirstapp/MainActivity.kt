@@ -27,12 +27,16 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.nkym.myfirstapp.ui.theme.MyFirstAppTheme
+import kotlin.random.Random
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,9 +45,66 @@ class MainActivity : ComponentActivity() {
             MyFirstAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    UnitConverter()
+                    //UnitConverter()
+                    CaptainGame()
                 }
             }
+        }
+    }
+    @Composable
+    fun CaptainGame(){
+        var test1 = 0
+        var test3 = 3
+        var test2 = remember{ test3 }
+        val treasuresFound = remember { mutableIntStateOf(0) }
+        val direction = remember { mutableStateOf("North") }
+        Column{
+            Text(text = "no remember: ${test1}")
+            Text(text = "no mutableStateOf: ${test2}")
+            Text(text = "remember + mutableStateOf: ${treasuresFound.value}")
+            Text(text = "Current Direction: ${direction.value}")
+            //East
+            Button(onClick = {
+                direction.value = "East"
+                if(Random.nextBoolean()){
+                    treasuresFound.value += 1
+                    test1 += 1
+                    test3 += 1
+                }
+            }){
+                Text(text = "Sail East")
+            }
+
+            //South
+            Button(onClick = {
+                direction.value = "South"
+                if(Random.nextBoolean()){
+                    treasuresFound.value += 1
+                }
+            }){
+                Text(text = "Sail South")
+            }
+
+            //North
+            Button(onClick = {
+                direction.value = "North"
+                if(Random.nextBoolean()){
+                    treasuresFound.value += 1
+                }
+            }){
+                Text(text = "Sail North")
+            }
+
+            //West
+            Button(onClick = {
+                direction.value = "West"
+                if(Random.nextBoolean()){
+                    treasuresFound.value += 1
+                }
+            }){
+                Text(text = "Sail West")
+            }
+
         }
     }
 }
