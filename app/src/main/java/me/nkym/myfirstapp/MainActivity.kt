@@ -27,6 +27,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -54,17 +55,18 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun CaptainGame(){
         val stormOrTreasure = remember{ mutableStateOf("") }
-        val treasuresFound = remember { mutableIntStateOf(0) }
+        //val treasuresFound = remember { mutableIntStateOf(0) }
+        val treasuresFound by remember { mutableStateOf(0) }
         val direction = remember { mutableStateOf("North") }
         Column{
-            Text(text = "Treasure Found: ${treasuresFound.value}")
+            Text(text = "Treasure Found: ${treasuresFound}")
             Text(text = "Current Direction: ${direction.value}")
             Text(text = stormOrTreasure.value)
             //East
             Button(onClick = {
                 direction.value = "East"
                 if(Random.nextBoolean()){
-                    treasuresFound.value += 1
+                    //treasuresFound.value += 1
                     stormOrTreasure.value = "Found a Treasure!"
                 } else {
                     stormOrTreasure.value = "Storm Ahead!"
@@ -78,7 +80,7 @@ class MainActivity : ComponentActivity() {
             Button(onClick = {
                 direction.value = "South"
                 if(Random.nextBoolean()){
-                    treasuresFound.value += 1
+                    //treasuresFound.value += 1
                     stormOrTreasure.value = "Found a Treasure!"
                 } else {
                     stormOrTreasure.value = "Storm Ahead!"
@@ -91,7 +93,7 @@ class MainActivity : ComponentActivity() {
             Button(onClick = {
                 direction.value = "North"
                 if(Random.nextBoolean()){
-                    treasuresFound.value += 1
+                    //treasuresFound.value += 1
                     stormOrTreasure.value = "Found a Treasure!"
                 } else {
                     stormOrTreasure.value = "Storm Ahead!"
@@ -104,7 +106,7 @@ class MainActivity : ComponentActivity() {
             Button(onClick = {
                 direction.value = "West"
                 if(Random.nextBoolean()){
-                    treasuresFound.value += 1
+                    //treasuresFound.value += 1
                     stormOrTreasure.value = "Found a Treasure!"
                 } else {
                     stormOrTreasure.value = "Storm Ahead!"
