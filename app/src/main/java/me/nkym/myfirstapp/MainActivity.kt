@@ -53,24 +53,23 @@ class MainActivity : ComponentActivity() {
     }
     @Composable
     fun CaptainGame(){
-        var test1 = 0
-        var test3 = 3
-        var test2 = remember{ test3 }
+        val stormOrTreasure = remember{ mutableStateOf("") }
         val treasuresFound = remember { mutableIntStateOf(0) }
         val direction = remember { mutableStateOf("North") }
         Column{
-            Text(text = "no remember: ${test1}")
-            Text(text = "no mutableStateOf: ${test2}")
-            Text(text = "remember + mutableStateOf: ${treasuresFound.value}")
+            Text(text = "Treasure Found: ${treasuresFound.value}")
             Text(text = "Current Direction: ${direction.value}")
+            Text(text = stormOrTreasure.value)
             //East
             Button(onClick = {
                 direction.value = "East"
                 if(Random.nextBoolean()){
                     treasuresFound.value += 1
-                    test1 += 1
-                    test3 += 1
+                    stormOrTreasure.value = "Found a Treasure!"
+                } else {
+                    stormOrTreasure.value = "Storm Ahead!"
                 }
+
             }){
                 Text(text = "Sail East")
             }
@@ -80,6 +79,9 @@ class MainActivity : ComponentActivity() {
                 direction.value = "South"
                 if(Random.nextBoolean()){
                     treasuresFound.value += 1
+                    stormOrTreasure.value = "Found a Treasure!"
+                } else {
+                    stormOrTreasure.value = "Storm Ahead!"
                 }
             }){
                 Text(text = "Sail South")
@@ -90,6 +92,9 @@ class MainActivity : ComponentActivity() {
                 direction.value = "North"
                 if(Random.nextBoolean()){
                     treasuresFound.value += 1
+                    stormOrTreasure.value = "Found a Treasure!"
+                } else {
+                    stormOrTreasure.value = "Storm Ahead!"
                 }
             }){
                 Text(text = "Sail North")
@@ -100,6 +105,9 @@ class MainActivity : ComponentActivity() {
                 direction.value = "West"
                 if(Random.nextBoolean()){
                     treasuresFound.value += 1
+                    stormOrTreasure.value = "Found a Treasure!"
+                } else {
+                    stormOrTreasure.value = "Storm Ahead!"
                 }
             }){
                 Text(text = "Sail West")
