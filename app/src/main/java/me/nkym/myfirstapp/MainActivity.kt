@@ -31,6 +31,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -46,8 +47,8 @@ class MainActivity : ComponentActivity() {
             MyFirstAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    //UnitConverter()
-                    CaptainGame()
+                    UnitConverter()
+                    //CaptainGame()
                 }
             }
         }
@@ -56,7 +57,7 @@ class MainActivity : ComponentActivity() {
     fun CaptainGame(){
         val stormOrTreasure = remember{ mutableStateOf("") }
         //val treasuresFound = remember { mutableIntStateOf(0) }
-        val treasuresFound by remember { mutableStateOf(0) }
+        var treasuresFound by remember { mutableStateOf(0) }
         val direction = remember { mutableStateOf("North") }
         Column{
             Text(text = "Treasure Found: ${treasuresFound}")
@@ -66,7 +67,7 @@ class MainActivity : ComponentActivity() {
             Button(onClick = {
                 direction.value = "East"
                 if(Random.nextBoolean()){
-                    //treasuresFound.value += 1
+                    treasuresFound += 1
                     stormOrTreasure.value = "Found a Treasure!"
                 } else {
                     stormOrTreasure.value = "Storm Ahead!"
@@ -121,6 +122,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun UnitConverter(){
+    var inputValue by remember{ mutableStateOf("") }
+
     //Column{}内に記述する要素は重ならず、一行下に記述される。
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -129,9 +132,14 @@ fun UnitConverter(){
     ) {
         Text("Unit Converter", modifier = Modifier.padding())
         Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(value = "", onValueChange = {
+        OutlinedTextField(
+            value = inputValue,
+            onValueChange = {
+            inputValue = it
             //Value値が変化した際に実行されるソースコードを記述する。
-        })
+            },
+            label = { Text(text = "Enter Value")}
+        )
         Spacer(modifier = Modifier.height(16.dp))
         Row {
             /*
@@ -150,7 +158,7 @@ fun UnitConverter(){
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "")
 
                 }
-                DropdownMenu(expanded = true, onDismissRequest = { /*TODO*/ }){
+                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }){
                     DropdownMenuItem(
                         text = { Text("Centimeters") },
                         onClick = { /*TODO*/ }
@@ -175,7 +183,7 @@ fun UnitConverter(){
                     Text(text = "Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "")
                 }
-                DropdownMenu(expanded = true, onDismissRequest = { /*TODO*/ }){
+                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }){
                     DropdownMenuItem(
                         text = { Text("Centimeters") },
                         onClick = { /*TODO*/ }
