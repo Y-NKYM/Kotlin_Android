@@ -169,7 +169,7 @@ fun UnitConverter(){
 
             Box{
                 Button(onClick = { iExpanded = true }) {
-                    Text(text = "Select")
+                    Text(text = inputUnit)
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "")
 
                 }
@@ -215,7 +215,7 @@ fun UnitConverter(){
             Spacer(modifier = Modifier.width(16.dp))
             Box{
                 Button(onClick = { oExpanded = true }) {
-                    Text(text = "Select")
+                    Text(text = outputUnit)
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "")
                 }
                 DropdownMenu(expanded = oExpanded, onDismissRequest = { oExpanded = false }){
