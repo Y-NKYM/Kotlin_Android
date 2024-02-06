@@ -123,6 +123,12 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun UnitConverter(){
     var inputValue by remember{ mutableStateOf("") }
+    var outputValue by remember{ mutableStateOf("") }
+    var inputUnity by remember{ mutableStateOf("Centimeters") }
+    var outputUnity by remember{ mutableStateOf("Meters") }
+    var iExpanded by remember{ mutableStateOf(false) }
+    var oExpanded by remember{ mutableStateOf(false) }
+    val conversionFactor = remember { mutableStateOf(0.01) }
 
     //Column{}内に記述する要素は重ならず、一行下に記述される。
     Column(
@@ -153,12 +159,12 @@ fun UnitConverter(){
             */
 
             Box{
-                Button(onClick = { /*TODO*/ }) {
+                Button(onClick = { iExpanded = true }) {
                     Text(text = "Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "")
 
                 }
-                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }){
+                DropdownMenu(expanded = iExpanded, onDismissRequest = { iExpanded = false }){
                     DropdownMenuItem(
                         text = { Text("Centimeters") },
                         onClick = { /*TODO*/ }
@@ -179,11 +185,11 @@ fun UnitConverter(){
             }
             Spacer(modifier = Modifier.width(16.dp))
             Box{
-                Button(onClick = { /*TODO*/ }) {
+                Button(onClick = { oExpanded = true }) {
                     Text(text = "Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "")
                 }
-                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }){
+                DropdownMenu(expanded = oExpanded, onDismissRequest = { oExpanded = false }){
                     DropdownMenuItem(
                         text = { Text("Centimeters") },
                         onClick = { /*TODO*/ }
