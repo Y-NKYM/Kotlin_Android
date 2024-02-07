@@ -34,9 +34,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import me.nkym.myfirstapp.ui.theme.MyFirstAppTheme
 import kotlin.math.roundToInt
 import kotlin.random.Random
@@ -144,7 +148,10 @@ fun UnitConverter(){
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Unit Converter", modifier = Modifier.padding())
+        Text("Unit Converter", 
+            modifier = Modifier.padding(),
+            style = MaterialTheme.typography.headlineLarge
+            )
         Spacer(modifier = Modifier.height(16.dp))
         OutlinedTextField(
             value = inputValue,
@@ -259,7 +266,20 @@ fun UnitConverter(){
             }
         }
         Spacer(modifier = Modifier.height(16.dp))
-        Text("Result: $outputValue $outputUnit")
+        //方法1
+        Text("Result: $outputValue $outputUnit",
+            style = MaterialTheme.typography.headlineMedium,
+            fontFamily = FontFamily.Cursive
+        )
+        //方法２
+        val customTextStyle = TextStyle(
+            fontFamily = FontFamily.Default,
+            fontSize = 32.sp,
+            color = Color.Red
+        )
+        Text("Result: $outputValue $outputUnit",
+            style = customTextStyle
+        )
     }
 }
 
