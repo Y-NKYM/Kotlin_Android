@@ -45,6 +45,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.nkym.myfirstapp.ui.theme.MyFirstAppTheme
+import me.nkym.myfirstapp.ui.theme.ShoppingListApp
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
@@ -55,40 +56,13 @@ class MainActivity : ComponentActivity() {
             MyFirstAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-
-                    ShoppingList()
+                    ShoppingListApp()
                     //UnitConverter()
                     //CaptainGame()
                 }
             }
         }
     }
-
-    @Composable
-    fun ShoppingList(){
-        var sItems by remember{ mutableStateOf(listOf<ShoppingItem>()) }
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center
-        ) {
-            Button(onClick = { /*TODO*/ }, modifier = Modifier.align(Alignment.CenterHorizontally)) {
-                Text("Add Item")
-            }
-            LazyColumn(
-                modifier = Modifier.fillMaxSize().padding(16.dp)
-            ){
-                items(sItems){}
-            }
-        }
-    }
-
-    data class ShoppingItem(
-        val id:Int,
-        var name: String,
-        var quantity:Int,
-        var isEditing:Boolean = false
-    )
-
 
     @Composable
     fun CaptainGame(){
