@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,6 +14,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
@@ -52,6 +55,7 @@ class MainActivity : ComponentActivity() {
             MyFirstAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+
                     ShoppingList()
                     //UnitConverter()
                     //CaptainGame()
@@ -62,6 +66,7 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun ShoppingList(){
+        var sItems by remember{ mutableStateOf(listOf<ShoppingItem>()) }
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center
@@ -69,8 +74,20 @@ class MainActivity : ComponentActivity() {
             Button(onClick = { /*TODO*/ }, modifier = Modifier.align(Alignment.CenterHorizontally)) {
                 Text("Add Item")
             }
+            LazyColumn(
+                modifier = Modifier.fillMaxSize().padding(16.dp)
+            ){
+                items(sItems){}
+            }
         }
     }
+
+    data class ShoppingItem(
+        val id:Int,
+        var name: String,
+        var quantity:Int,
+        var isEditing:Boolean = false
+    )
 
 
     @Composable
