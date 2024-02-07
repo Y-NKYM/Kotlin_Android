@@ -52,12 +52,27 @@ class MainActivity : ComponentActivity() {
             MyFirstAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    UnitConverter()
+                    ShoppingList()
+                    //UnitConverter()
                     //CaptainGame()
                 }
             }
         }
     }
+
+    @Composable
+    fun ShoppingList(){
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center
+        ) {
+            Button(onClick = { /*TODO*/ }, modifier = Modifier.align(Alignment.CenterHorizontally)) {
+                Text("Add Item")
+            }
+        }
+    }
+
+
     @Composable
     fun CaptainGame(){
         val stormOrTreasure = remember{ mutableStateOf("") }
