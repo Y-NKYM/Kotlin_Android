@@ -2,6 +2,7 @@ package me.nkym.myfirstapp.ui.theme
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -62,7 +63,25 @@ fun ShoppingListApp(){
     if(showDialog){
         AlertDialog(
             onDismissRequest = { showDialog = false },
-            confirmButton = { /*TODO*/ },
+            confirmButton = {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(8.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ){
+                                Button(onClick = {
+
+                                }) {
+                                    Text(text = "Add")
+                                }
+                                Button(onClick = {
+
+                                }) {
+                                    Text(text = "Cancel")
+                                }
+                            }
+                            },
             title = { Text("Add Shopping Item") },
             text = {
                 Column {
@@ -70,14 +89,18 @@ fun ShoppingListApp(){
                         value = itemName,
                         onValueChange = { itemName = it },
                         singleLine = true,
-                        modifier = Modifier.fillMaxWidth().padding(8.dp)
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(8.dp)
                     )
 
                     OutlinedTextField(
                         value = itemQuantity,
                         onValueChange = { itemQuantity = it },
                         singleLine = true,
-                        modifier = Modifier.fillMaxWidth().padding(8.dp)
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(8.dp)
                     )
                 }
             }
