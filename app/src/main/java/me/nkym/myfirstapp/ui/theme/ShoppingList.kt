@@ -71,7 +71,17 @@ fun ShoppingListApp(){
                                 horizontalArrangement = Arrangement.SpaceBetween
                             ){
                                 Button(onClick = {
-
+                                    if(itemName.isNotBlank()){
+                                        val newItem = ShoppingItem(
+                                            id = sItems.size+1,
+                                            name = itemName,
+                                            quantity = itemQuantity.toInt()
+                                        )
+                                        sItems = sItems + newItem
+                                        showDialog = false
+                                        itemName = ""
+                                        itemQuantity = ""
+                                    }
                                 }) {
                                     Text(text = "Add")
                                 }
