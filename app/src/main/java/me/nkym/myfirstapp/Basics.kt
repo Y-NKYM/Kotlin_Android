@@ -154,7 +154,6 @@ fun main(){
     freeLambda = { number *= it }
     freeLambda(3)
     println(number)
-    */
 
     //Map
     val numbers = listOf(1, 2, 3)
@@ -174,6 +173,17 @@ fun main(){
     myArray[0] = 5
     println(myArray)
     println(mutableArray)
+    */
+
+    //Let
+    //nullable String
+    var name:String? = "Ella"
+    name?.let{
+        println(it.toUpperCase())
+    }
+    println(name?.toUpperCase())
+    name = null
+    println(name?.length)
 }
 
 /*
