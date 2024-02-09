@@ -160,6 +160,20 @@ fun main(){
     val numbers = listOf(1, 2, 3)
     val doubled = numbers.map { it * 2 }
     println(doubled)
+
+    //Copy
+    data class Vase(
+        val color: String,
+        val design: String
+    )
+    val blueRoseVase = Vase("Blue", "Rose")
+    val redRoseVase = blueRoseVase.copy(color = "Red")
+
+    val mutableArray = mutableListOf(1, 2, 3)
+    val myArray = mutableArray.toMutableList()
+    myArray[0] = 5
+    println(myArray)
+    println(mutableArray)
 }
 
 /*
