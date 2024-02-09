@@ -116,7 +116,7 @@ fun main(){
     daisy.age = 2
     println(daisy.age)
 
-     */
+
 
     //List
     val shoppingList = listOf("A", 1, "C")
@@ -143,9 +143,22 @@ fun main(){
     for(index in 0 until shoppingList3.size){
         println("item ${shoppingList3[index]} is at index $index")
     }
+    */
+
+    //Lambda
+    //val <variableName>: (<parameterDataType>) -> <returnDataType> = { <source code> }
+    val double: (Int) -> Int = { it * 2 }
+    println(double(10))
+
+    var number = 5
+    val freeLambda: (Int) -> Unit
+    freeLambda = { number *= it }
+    freeLambda(3)
+    println(number)
 
 }
 
+/*
 /* Function */
 fun makeCoffee(sugarCount: Int, name: String){
     if(sugarCount == 1){
@@ -181,3 +194,4 @@ fun createCoffee(coffeeDetails: CoffeeDetails){
         println("Coffee with ${coffeeDetails.sugarCount} spoons of sugar for ${coffeeDetails.name}")
     }
 }
+*/
