@@ -143,7 +143,6 @@ fun main(){
     for(index in 0 until shoppingList3.size){
         println("item ${shoppingList3[index]} is at index $index")
     }
-    */
 
     //Lambda
     //val <variableName>: (<parameterDataType>) -> <returnDataType> = { <source code> }
@@ -155,7 +154,12 @@ fun main(){
     freeLambda = { number *= it }
     freeLambda(3)
     println(number)
+    */
 
+    //Map
+    val numbers = listOf(1, 2, 3)
+    val doubled = numbers.map { it * 2 }
+    println(doubled)
 }
 
 /*
