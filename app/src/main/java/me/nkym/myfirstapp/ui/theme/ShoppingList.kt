@@ -69,7 +69,37 @@ fun ShoppingListApp(){
                 .padding(16.dp)
         ) {
             items(sItems) {
-                ShoppingListItem(it, {}, {})
+                item ->
+                if(item.isEditing){
+                    ShoppingItemEditor(item = item, onEditComplete = {
+                        editedName, editedQuantity ->
+                        //配列に存在するクラス全てのisEditingをfalseにし、どれも編集状態ではないようにする。
+                        sItems = sItems.map { it.copy(isEditing = false) }
+                        //.find{}は配列をループさせ、一番最初に引っかかった要素を戻り値とする。
+                        //ループして一つ一つの要素をitとし、編集していたクラス(item)のidと比較してマッチしたものをeditedItemとする。
+                        val editedItem = sItems.find { it.id == item.id }//つまりは{ it -> it.id == item.id }と同じ。
+                        //findでマッチがない場合nullとなってしまうので"?"でエラーとならないようにする。
+                        editedItem?.let{
+                            //編集内容をクラス内のメンバ変数に更新
+                            it.name = editedName
+                            it.quantity = editedQuantity
+                        }
+                    })
+                } else {
+                    ShoppingListItem(item = item,
+                        //編集ボタンがクリックされた場合
+                        onEditClick = {
+                            /*
+                            ボタンがクリックされると、ループ中の子の要素反映時にonEditClickのコード内容が実行される。
+                            よってitemはそのクリックされた要素を指し、itはmapでのループによるもの。
+                            クリックされたクラスを見つけ出し、そのクラスのisEditingをtrue更新した配列をコピー。
+                            元の配列に上書きする。
+                            */
+                            sItems = sItems.map { it.copy(isEditing = it.id == item.id ) }
+                    }) {
+                        
+                    }
+                }
             }
         }
     }
@@ -164,6 +194,7 @@ fun ShoppingListItem(
 @Composable
 fun ShoppingItemEditor(
     item: ShoppingItem,
+    //{}内のコードが実行し終えた後にすべきこと
     onEditComplete: (String, Int) -> Unit)
 {
     var editedName by remember { mutableStateOf(item.name) }
