@@ -74,6 +74,7 @@ fun ShoppingListApp(){
                     ShoppingItemEditor(item = item, onEditComplete = {
                         editedName, editedQuantity ->
                         //配列に存在するクラス全てのisEditingをfalseにし、どれも編集状態ではないようにする。
+                        //別の編集ボタンを押した場合、他の編集をやめるようにする。
                         sItems = sItems.map { it.copy(isEditing = false) }
                         //.find{}は配列をループさせ、一番最初に引っかかった要素を戻り値とする。
                         //ループして一つ一つの要素をitとし、編集していたクラス(item)のidと比較してマッチしたものをeditedItemとする。
@@ -178,7 +179,8 @@ fun ShoppingListItem(
             .border(
                 border = BorderStroke(2.dp, Color(0xFF000000)),
                 shape = RoundedCornerShape(20)
-            )
+            ),
+            horizontalArrangement = Arrangement.SpaceBetween
     ){
         Text(text = item.name, modifier = Modifier.padding(8.dp))
         Text(text = "Qty: ${item.quantity}", modifier = Modifier.padding(8.dp))
@@ -226,12 +228,13 @@ fun ShoppingItemEditor(
                     .wrapContentSize()
                     .padding(8.dp)
             )
-            Button(onClick = {
-                isEditing = false
-                onEditComplete(editedName, editedQuantity.toIntOrNull()?: 1)
-            }) {
-                Text(text = "Save")
-            }
+        }
+
+        Button(onClick = {
+            isEditing = false
+            onEditComplete(editedName, editedQuantity.toIntOrNull()?: 1)
+        }) {
+            Text(text = "Save")
         }
     }
 }
