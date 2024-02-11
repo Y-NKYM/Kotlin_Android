@@ -173,7 +173,6 @@ fun main(){
     myArray[0] = 5
     println(myArray)
     println(mutableArray)
-    */
 
     //Let
     //nullable String
@@ -184,6 +183,13 @@ fun main(){
     println(name?.toUpperCase())
     name = null
     println(name?.length)
+
+    */
+
+    //配列内の要素を[＋、－]記号で要素の追加削除が可能。
+    var myList = mutableListOf(1, 2, 3, 4, 5)
+    println(myList - 2)
+    println(myList + 6)
 }
 
 /*

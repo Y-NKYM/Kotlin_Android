@@ -96,9 +96,11 @@ fun ShoppingListApp(){
                             元の配列に上書きする。
                             */
                             sItems = sItems.map { it.copy(isEditing = it.id == item.id ) }
-                    }) {
-                        
-                    }
+                        },
+                        onDeleteClick = {
+                            sItems = sItems-item
+                        }
+                    )
                 }
             }
         }
