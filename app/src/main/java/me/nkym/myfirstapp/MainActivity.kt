@@ -35,6 +35,8 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import me.nkym.myfirstapp.practiceapps.CounterApp
 import me.nkym.myfirstapp.ui.theme.MyFirstAppTheme
 import kotlin.math.roundToInt
 import kotlin.random.Random
@@ -46,7 +48,9 @@ class MainActivity : ComponentActivity() {
             MyFirstAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    //CounterApp()
+                    val viewModel: CounterViewModel = viewModel()
+                    CounterApp(viewModel)
+                    //Text(text = "Treasure")
                     //ShoppingListApp()
                     //UnitConverter()
                     //CaptainGame()

@@ -17,35 +17,37 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import me.nkym.myfirstapp.CounterViewModel
 import java.lang.reflect.Modifier
 
 @Composable
-fun CounterApp(){
-    val count = remember{ mutableStateOf(0) }
+fun CounterApp(viewModel: CounterViewModel){
 
-    fun increment(){
-        count.value++
-    }
-
-    fun decrement(){
-        count.value--
-    }
+//    val count = remember{ mutableStateOf(0) }
+//
+//    fun increment(){
+//        count.value++
+//    }
+//
+//    fun decrement(){
+//        count.value--
+//    }
 
     Column(modifier = androidx.compose.ui.Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Count: ${count.value}",
+            text = "Count: ${viewModel.count.value}",
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = androidx.compose.ui.Modifier.height(16.dp))
         Row(){
-            Button(onClick = { increment() }) {
+            Button(onClick = { viewModel.increment() }) {
                 Text(text = "Increment")
             }
-            Button(onClick = { decrement() }) {
+            Button(onClick = { viewModel.decrement() }) {
                 Text(text = "Decrement")
             }
         }
