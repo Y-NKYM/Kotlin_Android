@@ -1,6 +1,4 @@
-package me.nkym.myfirstapp
-
-import androidx.core.text.isDigitsOnly
+package me.nkym.myfirstapp.practiceapps
 
 fun main(){
     /*

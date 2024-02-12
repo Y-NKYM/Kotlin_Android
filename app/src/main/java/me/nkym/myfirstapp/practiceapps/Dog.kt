@@ -1,4 +1,4 @@
-package me.nkym.myfirstapp
+package me.nkym.myfirstapp.practiceapps
 
 //Basics for "class" object.
 class Dog(val name: String, var age: Int = 0) {

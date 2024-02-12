@@ -1,4 +1,4 @@
-package me.nkym.myfirstapp
+package me.nkym.myfirstapp.practiceapps
 
 import android.inputmethodservice.Keyboard
 import android.text.Layout

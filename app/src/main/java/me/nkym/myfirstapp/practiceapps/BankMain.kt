@@ -1,4 +1,4 @@
-package me.nkym.myfirstapp
+package me.nkym.myfirstapp.practiceapps
 
 fun main(){
     val frankBankAccount = BankAccount("Frank", 12345.67)
