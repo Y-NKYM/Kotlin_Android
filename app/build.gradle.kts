@@ -48,6 +48,18 @@ android {
 
 dependencies {
 
+    //Compose ViewModel
+    implementation("android.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+
+    //Network calls: インターネットから情報を取得し、保管するためのライブラリ
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+
+    //Json to Kotlin object mapping: Json型をKotlinオブジェクトに変換するためのライブラリ
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //Image loading: 変換され画像URLを実際に読み込んで画像を取得するためのライブラリ
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.activity:activity-compose:1.7.0")

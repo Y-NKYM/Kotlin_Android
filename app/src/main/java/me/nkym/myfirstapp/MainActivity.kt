@@ -37,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import me.nkym.myfirstapp.practiceapps.CounterApp
+import me.nkym.myfirstapp.practiceapps.CounterViewModel
 import me.nkym.myfirstapp.ui.theme.MyFirstAppTheme
 import kotlin.math.roundToInt
 import kotlin.random.Random

@@ -1,4 +1,4 @@
-package me.nkym.myfirstapp
+package me.nkym.myfirstapp.practiceapps
 
 data class CounterModel(
     var count: Int

@@ -1,4 +1,4 @@
-package me.nkym.myfirstapp
+package me.nkym.myfirstapp.practiceapps
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
