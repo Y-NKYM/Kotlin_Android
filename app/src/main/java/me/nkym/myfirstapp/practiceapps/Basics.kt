@@ -182,12 +182,21 @@ fun main(){
     name = null
     println(name?.length)
 
-    */
-
     //配列内の要素を[＋、－]記号で要素の追加削除が可能。
     var myList = mutableListOf(1, 2, 3, 4, 5)
     println(myList - 2)
     println(myList + 6)
+    */
+
+    //Try, Catch and Finally
+    try {
+        val number = readln().toInt()
+        println("User entered $number")
+    } catch(e: Exception){
+        println(e.message)
+    } finally {
+        println("Execute done.")
+    }
 }
 
 /*
