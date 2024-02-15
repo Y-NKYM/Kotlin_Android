@@ -49,7 +49,7 @@ android {
 dependencies {
 
     //Compose ViewModel
-    implementation("android.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 
     //Network calls: インターネットから情報を取得し、保管するためのライブラリ
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
