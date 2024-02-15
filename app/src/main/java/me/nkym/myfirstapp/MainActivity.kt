@@ -49,8 +49,9 @@ class MainActivity : ComponentActivity() {
             MyFirstAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    val viewModel: CounterViewModel = viewModel()
-                    CounterApp(viewModel)
+                    RecipeScreen()
+                    //val viewModel: CounterViewModel = viewModel()
+                    //CounterApp(viewModel)
                     //Text(text = "Treasure")
                     //ShoppingListApp()
                     //UnitConverter()
