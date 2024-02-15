@@ -26,12 +26,24 @@ import coil.compose.rememberAsyncImagePainter
 fun RecipeScreen(
     modifier: Modifier = Modifier
 ){
-    //MainViewModel型オブジェクトを取得。
+    /*
+    MainViewModelインスタンスオブジェクト化し、関数を使用するために変数に代入する。
+    viewModel型（データ変更時に随時変更してくれるための型）を読み込む。
+    式：val 変数名: オブジェクト型 = viewModel()
+    */
     val recipeViewModel: MainViewModel = viewModel()
 
-    //getValueをインポートし、取得状況によってのRecipeStateを取得。
+    /*
+    getValueをインポートし、取得状況によってのRecipeStateを取得。
+    上記インスタンス生成時、インターネットを通じてデータの取得が行われる。
+    その取得状況をまとめたオブジェクトクラスを取得する。
+    */
     val viewState by recipeViewModel.categoriesState
 
+    /*
+    取得したデータの内容によって画面内に反映させるものが変化する。
+    読み込み中の場合、読み込みエラーの場合、その他（読み込み成功）それぞれの記述。
+    */
     Box(modifier = Modifier.fillMaxSize()){
         when{
             viewState.loading -> {
@@ -46,7 +58,6 @@ fun RecipeScreen(
             }
         }
     }
-
 }
 
 //要素全体でのレイアウト
