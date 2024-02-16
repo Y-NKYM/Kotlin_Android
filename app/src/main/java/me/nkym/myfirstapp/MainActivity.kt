@@ -48,8 +48,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyFirstAppTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    RecipeScreen()
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+
+
+                    //RecipeScreen()
                     //val viewModel: CounterViewModel = viewModel()
                     //CounterApp(viewModel)
                     //Text(text = "Treasure")
@@ -60,71 +65,104 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+}
 
-    @Composable
-    fun CaptainGame(){
-        val stormOrTreasure = remember{ mutableStateOf("") }
-        //val treasuresFound = remember { mutableIntStateOf(0) }
-        var treasuresFound by remember { mutableStateOf(0) }
-        val direction = remember { mutableStateOf("North") }
-        Column{
-            Text(text = "Treasure Found: ${treasuresFound}")
-            Text(text = "Current Direction: ${direction.value}")
-            Text(text = stormOrTreasure.value)
-            //East
-            Button(onClick = {
-                direction.value = "East"
-                if(Random.nextBoolean()){
-                    treasuresFound += 1
-                    stormOrTreasure.value = "Found a Treasure!"
-                } else {
-                    stormOrTreasure.value = "Storm Ahead!"
-                }
+@Composable
+fun FirstScreen(){
+    val name = remember {
+        mutableStateOf("")
+    }
 
-            }){
-                Text(text = "Sail East")
-            }
-
-            //South
-            Button(onClick = {
-                direction.value = "South"
-                if(Random.nextBoolean()){
-                    //treasuresFound.value += 1
-                    stormOrTreasure.value = "Found a Treasure!"
-                } else {
-                    stormOrTreasure.value = "Storm Ahead!"
-                }
-            }){
-                Text(text = "Sail South")
-            }
-
-            //North
-            Button(onClick = {
-                direction.value = "North"
-                if(Random.nextBoolean()){
-                    //treasuresFound.value += 1
-                    stormOrTreasure.value = "Found a Treasure!"
-                } else {
-                    stormOrTreasure.value = "Storm Ahead!"
-                }
-            }){
-                Text(text = "Sail North")
-            }
-
-            //West
-            Button(onClick = {
-                direction.value = "West"
-                if(Random.nextBoolean()){
-                    //treasuresFound.value += 1
-                    stormOrTreasure.value = "Found a Treasure!"
-                } else {
-                    stormOrTreasure.value = "Storm Ahead!"
-                }
-            }){
-                Text(text = "Sail West")
-            }
-
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        Text(text = "This is the First Screen")
+        Spacer(modifier = Modifier.height(16.dp))
+        OutlinedTextField(value = name.value, onValueChange = {
+            name.value = it
+        })
+        Button(onClick = {
+            //Transition from one screen to another.
+        }) {
+            Text(text = "Go to Second Screen")
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun FirstPreview(){
+    FirstScreen()
+}
+
+/*
+@Composable
+fun CaptainGame(){
+    val stormOrTreasure = remember{ mutableStateOf("") }
+    //val treasuresFound = remember { mutableIntStateOf(0) }
+    var treasuresFound by remember { mutableStateOf(0) }
+    val direction = remember { mutableStateOf("North") }
+    Column{
+        Text(text = "Treasure Found: ${treasuresFound}")
+        Text(text = "Current Direction: ${direction.value}")
+        Text(text = stormOrTreasure.value)
+        //East
+        Button(onClick = {
+            direction.value = "East"
+            if(Random.nextBoolean()){
+                treasuresFound += 1
+                stormOrTreasure.value = "Found a Treasure!"
+            } else {
+                stormOrTreasure.value = "Storm Ahead!"
+            }
+
+        }){
+            Text(text = "Sail East")
+        }
+
+        //South
+        Button(onClick = {
+            direction.value = "South"
+            if(Random.nextBoolean()){
+                //treasuresFound.value += 1
+                stormOrTreasure.value = "Found a Treasure!"
+            } else {
+                stormOrTreasure.value = "Storm Ahead!"
+            }
+        }){
+            Text(text = "Sail South")
+        }
+
+        //North
+        Button(onClick = {
+            direction.value = "North"
+            if(Random.nextBoolean()){
+                //treasuresFound.value += 1
+                stormOrTreasure.value = "Found a Treasure!"
+            } else {
+                stormOrTreasure.value = "Storm Ahead!"
+            }
+        }){
+            Text(text = "Sail North")
+        }
+
+        //West
+        Button(onClick = {
+            direction.value = "West"
+            if(Random.nextBoolean()){
+                //treasuresFound.value += 1
+                stormOrTreasure.value = "Found a Treasure!"
+            } else {
+                stormOrTreasure.value = "Storm Ahead!"
+            }
+        }){
+            Text(text = "Sail West")
+        }
+
     }
 }
 
@@ -300,3 +338,5 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 fun UnitConverterPreview() {
     UnitConverter()
 }
+
+*/
