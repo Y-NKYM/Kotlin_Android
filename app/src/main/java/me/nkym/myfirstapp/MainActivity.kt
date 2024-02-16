@@ -67,38 +67,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun FirstScreen(){
-    val name = remember {
-        mutableStateOf("")
-    }
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ){
-        Text(text = "This is the First Screen")
-        Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(value = name.value, onValueChange = {
-            name.value = it
-        })
-        Button(onClick = {
-            //Transition from one screen to another.
-        }) {
-            Text(text = "Go to Second Screen")
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun FirstPreview(){
-    FirstScreen()
-}
-
 /*
 @Composable
 fun CaptainGame(){
