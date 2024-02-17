@@ -36,8 +36,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import me.nkym.myfirstapp.practiceapps.CounterApp
 import me.nkym.myfirstapp.practiceapps.CounterViewModel
+import me.nkym.myfirstapp.screen.FirstScreen
+import me.nkym.myfirstapp.screen.SecondScreen
 import me.nkym.myfirstapp.ui.theme.MyFirstAppTheme
 import kotlin.math.roundToInt
 import kotlin.random.Random
@@ -52,7 +57,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    MyApp()
 
                     //RecipeScreen()
                     //val viewModel: CounterViewModel = viewModel()
@@ -62,6 +67,27 @@ class MainActivity : ComponentActivity() {
                     //UnitConverter()
                     //CaptainGame()
                 }
+            }
+        }
+    }
+}
+
+@Composable
+fun MyApp(){
+    val navController = rememberNavController()
+    NavHost(
+        navController = navController,
+        startDestination = "firstScreen"  //Different from class name.
+    ){
+        composable("firstScreen"){
+            FirstScreen(
+                navigationToSecondScreen = { navController.navigate("secondScreen") },
+                navigationToFirstScreen = { navController.navigate("firstScreen") }
+            )
+        }
+        composable("secondScreen"){
+            SecondScreen(){
+                navController.navigate("firstScreen")
             }
         }
     }

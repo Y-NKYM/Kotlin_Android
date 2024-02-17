@@ -18,7 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun FirstScreen(){
+fun FirstScreen(navigationToSecondScreen: ()->Unit, navigationToFirstScreen: ()->Unit){
     val name = remember {
         mutableStateOf("")
     }
@@ -37,8 +37,15 @@ fun FirstScreen(){
         })
         Button(onClick = {
             //Transition from one screen to another.
+            navigationToSecondScreen()
         }) {
             Text(text = "Go to Second Screen")
+        }
+        Button(onClick = {
+            //Transition from one screen to another.
+            navigationToFirstScreen()
+        }) {
+            Text(text = "Reload Screen")
         }
     }
 }
@@ -46,5 +53,5 @@ fun FirstScreen(){
 @Preview(showBackground = true)
 @Composable
 fun FirstPreview(){
-    FirstScreen()
+    //FirstScreen()  //本来遷移情報を送るが、ここでは送れないので実行できない。
 }
