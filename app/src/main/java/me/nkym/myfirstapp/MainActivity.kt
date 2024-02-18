@@ -43,6 +43,7 @@ import me.nkym.myfirstapp.practiceapps.CounterApp
 import me.nkym.myfirstapp.practiceapps.CounterViewModel
 import me.nkym.myfirstapp.screen.FirstScreen
 import me.nkym.myfirstapp.screen.SecondScreen
+import me.nkym.myfirstapp.screen.ThirdScreen
 import me.nkym.myfirstapp.ui.theme.MyFirstAppTheme
 import kotlin.math.roundToInt
 import kotlin.random.Random
@@ -86,7 +87,13 @@ fun MyApp(){
             )
         }
         composable("secondScreen"){
-            SecondScreen(){
+            SecondScreen(
+                navigationToThirdScreen = { navController.navigate("thirdScreen") },
+                navigationToFirstScreen = { navController.navigate("firstScreen") }
+            )
+        }
+        composable("thirdScreen"){
+            ThirdScreen(){
                 navController.navigate("firstScreen")
             }
         }
