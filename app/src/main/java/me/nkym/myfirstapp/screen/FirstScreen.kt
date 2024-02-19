@@ -18,7 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun FirstScreen(navigationToSecondScreen: ()->Unit, navigationToFirstScreen: ()->Unit){
+fun FirstScreen(navigationToSecondScreen:(String)->Unit){
     val name = remember {
         mutableStateOf("")
     }
@@ -37,15 +37,9 @@ fun FirstScreen(navigationToSecondScreen: ()->Unit, navigationToFirstScreen: ()-
         })
         Button(onClick = {
             //Transition from one screen to another.
-            navigationToSecondScreen()
+            navigationToSecondScreen(name.value)
         }) {
             Text(text = "Go to Second Screen")
-        }
-        Button(onClick = {
-            //Transition from one screen to another.
-            navigationToFirstScreen()
-        }) {
-            Text(text = "Reload Screen")
         }
     }
 }

@@ -81,16 +81,18 @@ fun MyApp(){
         startDestination = "firstScreen"  //Different from class name.
     ){
         composable("firstScreen"){
-            FirstScreen(
-                navigationToSecondScreen = { navController.navigate("secondScreen") },
-                navigationToFirstScreen = { navController.navigate("firstScreen") }
-            )
+            FirstScreen(){name ->
+                navController.navigate("secondScreen/$name")
+            }
         }
-        composable("secondScreen"){
-            SecondScreen(
-                navigationToThirdScreen = { navController.navigate("thirdScreen") },
-                navigationToFirstScreen = { navController.navigate("firstScreen") }
-            )
+        composable("secondScreen/{name}"){
+            val name = it.arguments?.getString("name") ?: "no name"
+            SecondScreen(name = name,
+                navigationToFirstScreen = { navController.navigate("firstScreen") },
+                navigationToThirdScreen = { navController.navigate("thirdScreen")})
+//            SecondScreen(name){
+//                navController.navigate("firstScreen")
+//            }
         }
         composable("thirdScreen"){
             ThirdScreen(){
