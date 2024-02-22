@@ -10,6 +10,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -22,6 +23,11 @@ fun FirstScreen(navigationToSecondScreen:(String)->Unit){
     val name = remember {
         mutableStateOf("")
     }
+    /*
+    val age = remember {
+        mutableStateOf(1)
+    }
+    */
 
     Column(
         modifier = Modifier
@@ -35,8 +41,14 @@ fun FirstScreen(navigationToSecondScreen:(String)->Unit){
         OutlinedTextField(value = name.value, onValueChange = {
             name.value = it
         })
+        /*
+        OutlinedTextField(value = age.value.toString(), onValueChange = {
+            age.value = it.toInt()
+        })
+        */
         Button(onClick = {
             //Transition from one screen to another.
+            /* navigationToSecondScreen(name.value, age.value) */
             navigationToSecondScreen(name.value)
         }) {
             Text(text = "Go to Second Screen")
