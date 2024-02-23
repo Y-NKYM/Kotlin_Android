@@ -19,8 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun SecondScreen(name: String, navigationToFirstScreen: ()->Unit, navigationToThirdScreen: ()->Unit){
-/* fun SecondScreen(name: String, age: Int, navigationToFirstScreen: ()->Unit, navigationToThirdScreen: ()->Unit){ */
+fun SecondScreen(name: String, age: String, navigationToFirstScreen: ()->Unit, navigationToThirdScreen: ()->Unit){
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -30,9 +29,7 @@ fun SecondScreen(name: String, navigationToFirstScreen: ()->Unit, navigationToTh
     ){
         Text(text = "This is the Second Screen")
         Text(text = "Welcome $name", fontSize = 24.sp)
-        /*
         Text(text = "You are $age years old.", fontSize = 24.sp)
-        */
         Button(onClick = {
             //Transition from one screen to another.
             navigationToFirstScreen()
