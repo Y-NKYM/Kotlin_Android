@@ -19,7 +19,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
+//別のクラスへ送る変数のデータ型をパラメーターとして記述
 fun FirstScreen(navigationToSecondScreen:(String, String)->Unit){
+    //保持するための変数の用意
     val name = remember {
         mutableStateOf("")
     }
@@ -36,6 +38,7 @@ fun FirstScreen(navigationToSecondScreen:(String, String)->Unit){
     ){
         Text(text = "This is the First Screen")
         Spacer(modifier = Modifier.height(16.dp))
+        //用意した変数に値を代入
         OutlinedTextField(value = name.value, onValueChange = {
             name.value = it
         })
@@ -44,6 +47,7 @@ fun FirstScreen(navigationToSecondScreen:(String, String)->Unit){
         })
         Button(onClick = {
             //Transition from one screen to another.
+            //遷移画面先をルート名で指定。（）内にURLに必要な変数を送る。
             navigationToSecondScreen(name.value, age.value)
         }) {
             Text(text = "Go to Second Screen")

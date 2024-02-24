@@ -63,13 +63,17 @@ fun MyApp(){
         startDestination = "firstScreen"  //Different from class name.
     ){
         composable("firstScreen"){
+            //クラス内のメンバ変数を取得し、URL越しに送る記述
             FirstScreen(){name, age ->
                 navController.navigate("secondScreen/$name/$age")
             }
         }
+        //URLで取得したメンバ変数を別のクラスへ送るための記述
         composable("secondScreen/{name}/{age}"){
+            //URLからの値を変数に代入
             val name = it.arguments?.getString("name") ?: "no name"
             val age = it.arguments?.getString("age") ?: "0"
+            //クラスのパラメーターに当てはめる
             SecondScreen(name = name, age = age,
                 navigationToFirstScreen = { navController.navigate("firstScreen") }
             ) { navController.navigate("thirdScreen") }

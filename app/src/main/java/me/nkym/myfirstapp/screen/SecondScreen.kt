@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
+//取得したいパラメーターを記述。
 fun SecondScreen(name: String, age: String, navigationToFirstScreen: ()->Unit, navigationToThirdScreen: ()->Unit){
     Column(
         modifier = Modifier
