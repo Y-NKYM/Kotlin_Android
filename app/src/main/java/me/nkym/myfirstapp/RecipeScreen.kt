@@ -1,6 +1,7 @@
 package me.nkym.myfirstapp
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
@@ -24,7 +25,9 @@ import coil.compose.rememberAsyncImagePainter
 
 @Composable
 fun RecipeScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    //関数の内容をこのクラス外から受け取るようにする＝パラメーターを追加。
+    navigateToDetail: (Category) -> Unit
 ){
     /*
     MainViewModelインスタンスオブジェクト化し、関数を使用するために変数に代入する。
@@ -54,7 +57,9 @@ fun RecipeScreen(
             }
             else -> {
                 //Display Categories
-                CategoryScreen(categories = viewState.list)
+                //CategoryScreenのパラメーターが追加されたので、関数の内容を追加。
+                //関数の内容をこのクラス外から受け取るようにする＝パラメーターを追加。
+                CategoryScreen(categories = viewState.list, navigateToDetail)
             }
         }
     }
@@ -62,24 +67,32 @@ fun RecipeScreen(
 
 //要素全体でのレイアウト
 @Composable
-fun CategoryScreen(categories: List<Category>){
+fun CategoryScreen(categories: List<Category>, navigateToDetail: (Category) -> Unit){
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         modifier = Modifier.fillMaxSize()
         ){
         items(categories){
             category ->
-            CategoryItem(category = category)
+            //CategoryItem内にパラメーターを追加したため、関数の内容が必要。
+            //関数の内容をこのクラス外から受け取るようにする＝パラメーターを追加。
+            CategoryItem(category = category, navigateToDetail)
         }
     }
 }
 
 //個々の要素のレイアウト
 @Composable
-fun CategoryItem(category: Category){
+fun CategoryItem(
+    category: Category,
+    //遷移前の画面からオブジェクトを受け取り、関数を実行する宣言
+    navigateToDetail: (Category) -> Unit
+    ){
     Column(modifier = Modifier
         .padding(8.dp)
-        .fillMaxSize(),
+        .fillMaxSize()
+        //一つ一つの格納したオブジェクトに対し、navigateToDetail関数を実行する。
+        .clickable { navigateToDetail(category) },
         horizontalAlignment = Alignment.CenterHorizontally)
     {
         //Image
