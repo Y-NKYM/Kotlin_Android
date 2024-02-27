@@ -12,5 +12,10 @@ sealed class Screen(val route:String) {
     一つしか生成されないことが保証されたクラスを生成。
     アプリケーション全体で単一のインスタンスを共有する場合に使用。
     */
+
+    /*
+    異なる画面ごとにルート名を値とした定数を作成する。
+    */
     object RecipeScreen:Screen("recipeScreen")
+    object DetailScreen:Screen("detailScreen")
 }
