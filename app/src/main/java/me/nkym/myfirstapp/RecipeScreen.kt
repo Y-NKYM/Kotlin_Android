@@ -26,6 +26,17 @@ import coil.compose.rememberAsyncImagePainter
 @Composable
 fun RecipeScreen(
     modifier: Modifier = Modifier,
+    /*
+    getValueをインポートし、取得状況によってのRecipeStateを取得。
+    上記インスタンス生成時、インターネットを通じてデータの取得が行われる。
+    その取得状況をまとめたオブジェクトクラスを取得する。
+
+    旧：val viewState by recipeViewModel.categoriesState
+    元々一括で全ての情報を取得していたが、一部の取得を可能とするため、
+    categories情報を直接取得ではなく、パラメーター空取得するように変更。
+    */
+    viewState: MainViewModel.RecipeState,
+
     //関数の内容をこのクラス外から受け取るようにする＝パラメーターを追加。
     navigateToDetail: (Category) -> Unit
 ){
@@ -33,15 +44,12 @@ fun RecipeScreen(
     MainViewModelインスタンスオブジェクト化し、関数を使用するために変数に代入する。
     viewModel型（データ変更時に随時変更してくれるための型）を読み込む。
     式：val 変数名: オブジェクト型 = viewModel()
-    */
-    val recipeViewModel: MainViewModel = viewModel()
 
-    /*
-    getValueをインポートし、取得状況によってのRecipeStateを取得。
-    上記インスタンス生成時、インターネットを通じてデータの取得が行われる。
-    その取得状況をまとめたオブジェクトクラスを取得する。
+    MainViewModelから情報を直接受け取らず、パラメーター越しに受け取るようにしたので、
+    以下の記述が必要無くなる。
+    val recipeViewModel: MainViewModel = viewModel()
     */
-    val viewState by recipeViewModel.categoriesState
+
 
     /*
     取得したデータの内容によって画面内に反映させるものが変化する。
